@@ -24,6 +24,7 @@ namespace Chap01bMatchGame
         DispatcherTimer timer = new DispatcherTimer();
         int tenthsOfSecondElapsed;
         int matchesFound;
+        int bestOfSecondElapsed = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +41,19 @@ namespace Chap01bMatchGame
             if (matchesFound == 8)
             {
                 timer.Stop();
-                timeTextBlock.Text = timeTextBlock.Text + " - Play again?";
+                if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0)
+                {
+                    bestOfSecondElapsed = tenthsOfSecondElapsed;
+                    timeTextBlock.Text = "New best elapsed time " + timeTextBlock.Text + "! - Play again?";
+                }
+                else
+                {
+                    if (bestOfSecondElapsed == 0)
+                    {
+                        bestOfSecondElapsed = tenthsOfSecondElapsed;
+                    }
+                    timeTextBlock.Text += " - Play again?";
+                }
             }
         }
 
@@ -102,7 +115,7 @@ namespace Chap01bMatchGame
         private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (matchesFound == 8)
-            {
+            {                
                 SetUpGame();
                 foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
                 {
