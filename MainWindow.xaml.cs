@@ -24,7 +24,7 @@ namespace Chap01bMatchGame
         DispatcherTimer timer = new DispatcherTimer();
         int tenthsOfSecondElapsed;
         int matchesFound;
-        int bestOfSecondElapsed = 0;
+        int bestOfSecondElapsed = 0; // Field to store best elapsed time
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace Chap01bMatchGame
             if (matchesFound == 8)
             {
                 timer.Stop();
-                if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0)
+                if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0) // Determine if elapsed time is best time attained
                 {
                     bestOfSecondElapsed = tenthsOfSecondElapsed;
                     timeTextBlock.Text = "Best time " + timeTextBlock.Text + "! - Play again?";
@@ -117,7 +117,7 @@ namespace Chap01bMatchGame
             if (matchesFound == 8)
             {                
                 SetUpGame();
-                foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+                foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>()) // Iterate through all the textBlock except timeTextBlock and set Visibility to true.
                 {
                     if (textBlock.Text != timeTextBlock.Text)
                     {
