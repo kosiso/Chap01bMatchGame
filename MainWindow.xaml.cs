@@ -44,7 +44,7 @@ namespace Chap01bMatchGame
                 if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0)
                 {
                     bestOfSecondElapsed = tenthsOfSecondElapsed;
-                    timeTextBlock.Text = "New best elapsed time " + timeTextBlock.Text + "! - Play again?";
+                    timeTextBlock.Text = "Best time " + timeTextBlock.Text + "! - Play again?";
                 }
                 else
                 {
