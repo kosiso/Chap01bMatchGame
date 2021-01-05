@@ -44,7 +44,7 @@ namespace Chap01bMatchGame
                 if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0) // Determine if elapsed time is best time attained
                 {
                     bestOfSecondElapsed = tenthsOfSecondElapsed;
-                    timeTextBlock.Text = "Best time " + timeTextBlock.Text + "! - Play again?";
+                    timeTextBlock.Text = $"Best time {timeTextBlock.Text}! Play again?";
                 }
                 else
                 {
@@ -82,10 +82,10 @@ namespace Chap01bMatchGame
                     animalEmoji.RemoveAt(index);
                 }
             }
-
-            timer.Start();
+            
             tenthsOfSecondElapsed = 0;
             matchesFound = 0;
+            timer.Start();
         }
 
         TextBlock lastTextBlockClicked;
@@ -115,8 +115,7 @@ namespace Chap01bMatchGame
         private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (matchesFound == 8)
-            {                
-                SetUpGame();
+            {                                
                 foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>()) // Iterate through all the textBlock except timeTextBlock and set Visibility to true.
                 {
                     if (textBlock.Text != timeTextBlock.Text)
@@ -124,6 +123,7 @@ namespace Chap01bMatchGame
                         textBlock.Visibility = Visibility.Visible;
                     }
                 }
+                SetUpGame();
             }
         }
     }
