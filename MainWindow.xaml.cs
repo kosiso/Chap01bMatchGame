@@ -44,7 +44,7 @@ namespace Chap01bMatchGame
                 if (tenthsOfSecondElapsed < bestOfSecondElapsed && bestOfSecondElapsed != 0) // Determine if elapsed time is best time attained
                 {
                     bestOfSecondElapsed = tenthsOfSecondElapsed;
-                    timeTextBlock.Text = $"Best time {timeTextBlock.Text}! Play again?";
+                    timeTextBlock.Text = $"{timeTextBlock.Text} Best time! Play again?";
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace Chap01bMatchGame
             };
             Random random = new Random();
 
-            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>()) // Fill the mainGrid TextBlocks with animalEmoji. The timeTextBlock isn't filled.
             {
                 if (textBlock.Text != timeTextBlock.Text)
                 {
